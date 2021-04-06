@@ -1,0 +1,5 @@
+com\example\genderdetector\controller\HomeController.class
+com\example\genderdetector\GenderDetectorApplication.class
+com\example\genderdetector\model\CSVReader.class
+com\example\genderdetector\resources\FilePaths.class
+com\example\genderdetector\model\Names.class
