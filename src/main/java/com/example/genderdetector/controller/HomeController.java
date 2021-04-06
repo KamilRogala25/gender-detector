@@ -15,7 +15,9 @@ public class HomeController {
     }
 
     @GetMapping("/result")
-    public String getHomePage(@RequestParam(value = "names") String names, @RequestParam(value = "version") String version, ModelMap map){
+    public String getHomePage(@RequestParam(value = "names") String names,
+                              @RequestParam(value = "version") String version,
+                              ModelMap map){
         Names names1 = new Names(names);
         if (version.equalsIgnoreCase("simple")) map.put("result",names1.determineGenderSimpleVersion() );
         if (version.equalsIgnoreCase("full")) map.put("result",names1.determineGenderFullVersion() );

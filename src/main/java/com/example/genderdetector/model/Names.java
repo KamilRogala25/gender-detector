@@ -27,12 +27,9 @@ public class Names {
         String[] name = fullName.split("\\s+");
         femaleNameCounter += csvReader.findNameInFile(name[0],FilePaths.FEMALE_NAMES.getPath());
         maleNameCounter += csvReader.findNameInFile(name[0],FilePaths.MALE_NAMES.getPath());
-        System.out.println(femaleNameCounter);
-        System.out.println(maleNameCounter);
         if (maleNameCounter == femaleNameCounter) return "INCONCLUSIVE";
         if (maleNameCounter > femaleNameCounter) return "MALE";
-        if (maleNameCounter < femaleNameCounter) return "FEMALE";
-        return "";
+        return "FEMALE";
     }
 
     public String determineGenderFullVersion() {
@@ -40,14 +37,13 @@ public class Names {
         int maleNameCounter = 0;
         CSVReader csvReader = new CSVReader();
         String[] name = fullName.split("\\s+");
-        for (int i = 0; i < name.length ; i++) {
-            femaleNameCounter += csvReader.findNameInFile(name[i],FilePaths.FEMALE_NAMES.getPath());
-            maleNameCounter += csvReader.findNameInFile(name[i],FilePaths.MALE_NAMES.getPath());
+        for (String s : name) {
+            femaleNameCounter += csvReader.findNameInFile(s, FilePaths.FEMALE_NAMES.getPath());
+            maleNameCounter += csvReader.findNameInFile(s, FilePaths.MALE_NAMES.getPath());
         }
         if (maleNameCounter == femaleNameCounter) return "INCONCLUSIVE";
         if (maleNameCounter > femaleNameCounter) return "MALE";
-        if (maleNameCounter < femaleNameCounter) return "FEMALE";
-        return "";
+        return "FEMALE";
     }
 
 }
